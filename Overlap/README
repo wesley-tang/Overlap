@@ -1,0 +1,7 @@
+README
+Overlap WIP project files
+
+After installing Android Studio & its SDK, launch as a project & you should be good to go.
+
+Tutorial for incorporating google sign-in:
+https://developers.google.com/identity/sign-in/android/start-integrating
