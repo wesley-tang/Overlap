@@ -2,5 +2,5 @@
     <string name="app_name">Overlap</string>
     <string name="calendarSelect">Select your calendar service</string>
     <string name="comingSoon">More coming soon</string>
-    <string name="description">I'm not writing a description for all these damn assets</string>
+    <string name="description">I\'m not writing a description for all these damn assets</string>
 </resources>
