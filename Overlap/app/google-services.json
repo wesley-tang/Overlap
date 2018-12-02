@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "866336796449",
+    "firebase_url": "https://overlap-7b207.firebaseio.com",
+    "project_id": "overlap-7b207",
+    "storage_bucket": "overlap-7b207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866336796449:android:fd7cb150390ea6c4",
+        "android_client_info": {
+          "package_name": "overlap.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "866336796449-f4esauv3ajnin5pqfumaqv2s53l2s4c4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "overlap.project",
+            "certificate_hash": "3b7bf7f5f092848b72aa6dcb44149221d7b7f39c"
+          }
+        },
+        {
+          "client_id": "866336796449-q2maseqisqephbqq26ajqvjmvbtlspdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZtya3olUgQgNdL51XGdxSlYU6fYtCYQY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "866336796449-q2maseqisqephbqq26ajqvjmvbtlspdt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
