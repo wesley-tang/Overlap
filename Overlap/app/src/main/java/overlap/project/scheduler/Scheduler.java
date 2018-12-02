@@ -1,6 +1,8 @@
 package overlap.project.scheduler;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 /**
  * Scheduler manages the scheduling of events.
@@ -11,9 +13,9 @@ public class Scheduler {
 	private ArrayList<User> users = new ArrayList<>();
 
 	/**
-	 * Creates a new scheduler based off the given
+	 * Creates a new scheduler based off the given users
 	 *
-	 * @param ArrayList<User> to be considered for the scheduling.
+	 * @param users an ArrayList of Users to be considered for the scheduling.
 	 */
 	public Scheduler(ArrayList<User> users){
 		this.users = users;
@@ -21,9 +23,16 @@ public class Scheduler {
 
 	/**
 	 *
+	 * @param validDays an ArrayList of Strings containing the
 	 */
-	public void schedule(){
+	public void schedule(ArrayList<DateRange> validDays){
+
+
+
+
+
 
 	}
+
 
 }
