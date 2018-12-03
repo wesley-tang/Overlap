@@ -44,7 +44,7 @@ public class readAlg extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                //Tbis is where we decide how we read the data. If this is any different from how our data is stored, app will crash.
+                //This is where we decide how we read the data. If this is any different from how our data is stored, app will crash.
 
                 //Right now, we have 2 children in each 'key'. One is Name and other is Data. You will see this if you log into the firebase
                 //Hence to read the value at the Name child and Data child seperately, we do the following.
