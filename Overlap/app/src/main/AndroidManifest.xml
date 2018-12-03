@@ -1,29 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="overlap.project">
+package="overlap.project">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.INTERNET" />
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".googlesignin" />
-        <activity android:name=".firebase"></activity>
-        <activity android:name=".readAlg">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<application
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/AppTheme">
+    <activity android:name=".MainActivity"></activity>
+    <activity android:name=".googlesignin" />
+    <activity android:name=".firebase"></activity>
+    <activity android:name=".readAlg">
+    <activity android:name=".MainActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".scheduler.CalendarSelect"></activity>
-        <activity android:name=".googlesignin"></activity>
-    </application>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".scheduler.CalendarSelect"></activity>
+    <activity android:name=".googlesignin"></activity>
+</application>
 
+</manifest>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="overlap.project.scheduler">
+
+<application>
+    <activity android:name="overlap.project.scheduler.SettingsPage"></activity>
+</application>
 </manifest>
