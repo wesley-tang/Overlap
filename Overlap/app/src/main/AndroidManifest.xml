@@ -10,14 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-
-        </activity>
-        <activity android:name=".googlesignin"></activity>
-        <activity android:name=".firebase">
-
-
-        </activity>
-        <activity android:name=".readAlg">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +17,7 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".googlesignin"></activity>
     </application>
 
 </manifest>
