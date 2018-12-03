@@ -14,6 +14,10 @@
         </activity>
         <activity android:name=".googlesignin"></activity>
         <activity android:name=".firebase">
+
+
+        </activity>
+        <activity android:name=".readAlg">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
