@@ -21,7 +21,7 @@ public class DateRange {
 	private Date endDate;
 
 	// The pattern by which to convert iCalendar times to Date objects
-	private final String datePattern = "yyyyMMdd'T'HHmmss";
+	private final String datePattern = "yyyyMMdd'T'HHmmss'Z'";
 
 	/**
 	 * Creates a new DateRange from the given start and end. Must be written in iCalendar format
@@ -79,16 +79,19 @@ public class DateRange {
 	}
 
 	/**
-	 * Gives an int depending on whether or not the invoking
+	 * Gives an int depending on whether or not the invoking DateRange intersects with the passed DateRange
 	 *
-	 * @param toCheck the DateRange to check if it's in the date range
-	 * @return 0 if it does not intersect, 1 if the start intersects, 2 if the end intersects.
+	 * @param toCheck the DateRange to check if it's in the invoking daterange
+	 * @return 0 if it does not intersect, 1 if the start intersects, 2 if the end intersects,
+	 * 				3 if the passed DateRange completely contains the invoking DateRange
 	 */
 	public int intersects(DateRange toCheck){
 		if (toCheck.getStart().after(startDate) && toCheck.getStart().before(endDate))
 			return 1;
 		else if (toCheck.getEnd().after(startDate) && toCheck.getEnd().before(endDate))
 			return 2;
+		else if (toCheck.getStart().before(startDate) && toCheck.getEnd().after(endDate))
+			return 3;
 		return 0;
 	}
 
@@ -129,6 +132,11 @@ public class DateRange {
 					modifiedRange = new DateRange(dateRange.getStart(), getStart());
 				else if (state == 2)
 					modifiedRange = new DateRange(getEnd(), dateRange.getEnd());
+				else if (state == 3) {
+					// Completely remove this time if it is encompassed by the dateRange is within this
+					newDates.remove(dateRange);
+					continue;
+				}
 				else
 					continue;
 

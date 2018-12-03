@@ -18,7 +18,7 @@ public class DateRangeUnitTests {
     @Test
     public void createNewDateRangeTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
             //System.out.println(dr.getStart().toString() + " " + dr.getEnd().toString());
         } catch (ParseException e) {
             e.printStackTrace();
@@ -28,8 +28,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeContainsTrueTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertTrue(dr.contains(new DateRange("19980118T231000", "19980118T231500")));
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertTrue(dr.contains(new DateRange("19980118T231000Z", "19980118T231500Z")));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -38,8 +38,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeContainsFalseTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertFalse(dr.contains(new DateRange("20000118T230000", "20000118T231500")));
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertFalse(dr.contains(new DateRange("20000118T230000Z", "20000118T231500Z")));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -48,8 +48,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeContainsFalseEdgeOfRangeBothTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertFalse(dr.contains(new DateRange("19980118T230000", "19980118T240000")));
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertFalse(dr.contains(new DateRange("19980118T230000Z", "19980118T240000Z")));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -58,8 +58,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeContainsFalseEdgeOfRangeStartOnlyTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertFalse(dr.contains(new DateRange("19980118T230000", "19980118T231000")));
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertFalse(dr.contains(new DateRange("19980118T230000Z", "19980118T231000Z")));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -68,8 +68,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeContainsFalseEdgeOfRangeEndOnlyTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertFalse(dr.contains(new DateRange("19980118T231000", "19980118T240000")));
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertFalse(dr.contains(new DateRange("19980118T231000Z", "19980118T240000Z")));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -78,8 +78,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeStartIntersectsTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertEquals(dr.intersects(new DateRange("19980118T231000", "20000118T240000")), 1);
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertEquals(dr.intersects(new DateRange("19980118T231000Z", "20000118T240000Z")), 1);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -88,8 +88,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeEndIntersectsTrueTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertEquals(dr.intersects(new DateRange("19000118T230000", "19980118T231000")), 2);
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertEquals(dr.intersects(new DateRange("19000118T230000Z", "19980118T231000Z")), 2);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -99,8 +99,8 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeIntersectsOutOfRangeFailureTest(){
         try {
-            DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            assertEquals(dr.intersects(new DateRange("19000118T230000", "20000118T230500")), 0);
+            DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
+            assertEquals(dr.intersects(new DateRange("19000118T230000Z", "20000118T230500Z")), 0);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -109,12 +109,12 @@ public class DateRangeUnitTests {
     @Test
     public void dateRangeContainsRemovalFromListWithOneElementTest(){
         try {
-        	DateRange dr = new DateRange("19980118T230000", "19980118T240000");
+        	DateRange dr = new DateRange("19980118T230000Z", "19980118T240000Z");
 
 			ArrayList<DateRange> dates = new ArrayList<>();
 			dates.add(dr);
 
-			DateRange dr1 = new DateRange("19980118T231000", "19980118T235000");
+			DateRange dr1 = new DateRange("19980118T231000Z", "19980118T235000Z");
 			dates = dr1.removeFrom(dates);
 
 			for (DateRange date : dates){
