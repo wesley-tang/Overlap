@@ -15,6 +15,7 @@
         <activity android:name=".googlesignin" />
         <activity android:name=".firebase"></activity>
         <activity android:name=".readAlg">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,6 +23,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".scheduler.CalendarSelect"></activity>
+        <activity android:name=".googlesignin"></activity>
     </application>
 
 </manifest>
