@@ -2,5 +2,9 @@
     <string name="app_name">Overlap</string>
     <string name="calendarSelect">Select your calendar service</string>
     <string name="comingSoon">More coming soon</string>
+    <string name="duration">Duration:</string>
+    <string name="invitees">Invitees:</string>
+    <string name="timeframe">Schedule anytime within the next 2 months</string>
+    <string name="schedule">SCHEDULE EVENT</string>
     <string name="description">I\'m not writing a description for all these damn assets</string>
 </resources>
