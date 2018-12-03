@@ -20,8 +20,8 @@ public class DateRange {
 	private Date startDate;
 	private Date endDate;
 
-	// The pattern by which to convert iCalnedar times to Date objects
-	private final String datePattern = "yyyyMd'T'Hms";
+	// The pattern by which to convert iCalendar times to Date objects
+	private final String datePattern = "yyyyMMdd'T'HHmmss";
 
 	/**
 	 * Creates a new DateRange from the given start and end. Must be written in iCalendar format
