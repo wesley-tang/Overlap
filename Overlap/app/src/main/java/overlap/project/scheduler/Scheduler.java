@@ -1,7 +1,7 @@
 package overlap.project.scheduler;
 
-import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Scheduler manages the scheduling of events.
@@ -27,27 +27,38 @@ public class Scheduler {
 	 */
 	public DateRange schedule(ArrayList<DateRange> validDays){
 
-		String start = "";
-		String end = "";
-
-		
 		// Apply and filter out restrictions
-		// Obtain all data ranges capable of cotnaining an event
-		// Break range into 'slots' capable of contaiing the event and choose one
 
+		ArrayList<DateRange> unavailable = new ArrayList<>();
+
+		// Consider all user's calendars
+		for (User user : users){
+			unavailable.addAll(genDateRangesFrom(user, validDays.get(0).getStart(), validDays.get(validDays.size()-1).getEnd()));
+		}
+
+		// Remove from valid dates
+		for (DateRange dateRange : unavailable){
+			dateRange.removeFrom(validDays);
+		}
+
+		//todo remove preferences of all users.
+
+		//todo Break range into 'slots' capable of containing the event and choose one
 
 
 		DateRange scheduledEvent = null;
-		try {
-			scheduledEvent = new DateRange(start, end);
-		} catch (ParseException e) {
-			//TODO  Alert user with notification
-			System.out.println("Could not create schdeule because parse failed!");
-			e.printStackTrace();
-		}
+
 
 		return scheduledEvent;
 	}
 
+	private ArrayList<DateRange> genDateRangesFrom(User user, Date earliest, Date latest){
+		ArrayList<DateRange> events = new ArrayList<>();
+
+		// todo regex parse ics file from user to look for DTSTART and DTEND
+		//ignore until all those after the earliest date, and those later than the latest date
+
+		return events;
+	}
 
 }

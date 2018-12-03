@@ -3,6 +3,7 @@ package overlap.project;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 import overlap.project.scheduler.DateRange;
 
@@ -18,7 +19,7 @@ public class DateRangeUnitTests {
     public void createNewDateRangeTest(){
         try {
             DateRange dr = new DateRange("19980118T230000", "19980118T240000");
-            System.out.println(dr.getStart().toString() + " " + dr.getEnd().toString());
+            //System.out.println(dr.getStart().toString() + " " + dr.getEnd().toString());
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -106,9 +107,22 @@ public class DateRangeUnitTests {
     }
 
     @Test
-    public void dateRangeRemovalFromTypicalListTest(){
+    public void dateRangeContainsRemovalFromListWithOneElementTest(){
         try {
         	DateRange dr = new DateRange("19980118T230000", "19980118T240000");
+
+			ArrayList<DateRange> dates = new ArrayList<>();
+			dates.add(dr);
+
+			DateRange dr1 = new DateRange("19980118T231000", "19980118T235000");
+			dates = dr1.removeFrom(dates);
+
+			for (DateRange date : dates){
+				System.out.println(date.getStart().toString());
+				System.out.println(date.getEnd().toString());
+
+			}
+
 
         } catch (ParseException e) {
             e.printStackTrace();

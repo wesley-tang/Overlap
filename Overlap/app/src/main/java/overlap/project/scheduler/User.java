@@ -5,15 +5,23 @@ package overlap.project.scheduler;
  */
 public class User {
 	// ICS file of user
-	//private ics
+	private String ics;
 
 	// Preferences of user
-	//private preferences
+	private String noDays;
 
-	public User(){
-
+	public User(String ics, String noDays){
+		this.ics = ics;
+		this.noDays = noDays;
 	}
 
 	// GETTERS ~~~~~
 
+	public String getIcs() {
+		return ics;
+	}
+
+	public String getNoDays() {
+		return noDays;
+	}
 }
