@@ -1,6 +1,5 @@
 package overlap.project.scheduler;
 
-import java.lang.reflect.Array;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +12,7 @@ import java.util.regex.Pattern;
  */
 public class Scheduler {
 
-	private ArrayList<User> users = new ArrayList<>();
+	private ArrayList<User> users;
 
 	/**
 	 * Creates a new scheduler based off the given users
@@ -48,9 +47,8 @@ public class Scheduler {
 			validDays = dateRange.removeFrom(validDays);
 		}
 
-		//todo remove preferences of all users.
+		// todo remove preferences of all users.
 		// Do this when grabbing the user's input
-		// https://cs.uwaterloo.ca/~alopez-o/math-faq/node73.html
 
 		// Break range into 'slots' capable of containing the event
 		ArrayList<DateRange> possibleTimes = new ArrayList<>();
