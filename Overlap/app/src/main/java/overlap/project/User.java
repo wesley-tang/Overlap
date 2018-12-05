@@ -13,7 +13,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class users extends AppCompatActivity {
+public class User extends AppCompatActivity {
 
     private String id;
     private String displayName;
@@ -32,7 +32,7 @@ public class users extends AppCompatActivity {
     private DatabaseReference myRef;
 
     //User Constructor: Adds user to database
-    public users() {
+    public User() {
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {

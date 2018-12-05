@@ -15,7 +15,7 @@ public class Scheduler {
 	private ArrayList<User> users;
 
 	/**
-	 * Creates a new scheduler based off the given users
+	 * Creates a new scheduler based off the given User
 	 *
 	 * @param users an ArrayList of Users to be considered for the scheduling. User at index 0 must be the creator of the event
 	 */
@@ -24,7 +24,7 @@ public class Scheduler {
 	}
 
 	/**
-	 *	Schedules an event based off the users included in the scheduler and over the specified days and duration
+	 *	Schedules an event based off the User included in the scheduler and over the specified days and duration
 	 *
 	 * @param validDays an ArrayList of Strings containing the chosen days to schedule an event
 	 * @param duration a long containing the number of minutes the scheduled event should be\
@@ -47,7 +47,7 @@ public class Scheduler {
 			validDays = dateRange.removeFrom(validDays);
 		}
 
-		// todo remove preferences of all users.
+		// todo remove preferences of all User.
 		// Do this when grabbing the user's input
 
 		// Break range into 'slots' capable of containing the event

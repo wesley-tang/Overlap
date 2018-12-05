@@ -18,7 +18,6 @@ package="overlap.project">
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
-    <activity android:name=".GoogleSigninActivity" />
     <activity android:name=".scheduler.CalendarSelect"/>
 </application>
 
