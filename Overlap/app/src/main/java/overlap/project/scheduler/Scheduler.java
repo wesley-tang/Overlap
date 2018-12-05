@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import overlap.project.User;
+
 /**
  * Scheduler manages the scheduling of events.
  *

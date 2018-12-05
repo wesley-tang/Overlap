@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 
 import com.google.firebase.database.ChildEventListener;
@@ -14,6 +13,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class User extends AppCompatActivity {
+
+    private GoogleSignInAccount acct;
 
     private String id;
     private String displayName;
@@ -32,9 +33,8 @@ public class User extends AppCompatActivity {
     private DatabaseReference myRef;
 
     //User Constructor: Adds user to database
-    public User() {
+    public User(GoogleSignInAccount acct) {
 
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getApplicationContext());
         if (acct != null) {
             displayName = acct.getDisplayName();
             fname = acct.getGivenName();
@@ -43,6 +43,8 @@ public class User extends AppCompatActivity {
             id = acct.getId();
 
         }
+
+
 
     }
 

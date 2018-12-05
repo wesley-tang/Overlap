@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		// Set what the content for this activity will be
 		setContentView(R.layout.activity_main);
 
-
-
-
 		// https://developers.google.com/identity/sign-in/android/sign-in?authuser=1#top_of_page
 
 		// Configure sign-in to request the user's ID, email address, and basic
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
 		// Check for existing Google Sign In account, if the user is already signed in
-// the GoogleSignInAccount will be non-null.
+		// the GoogleSignInAccount will be non-null.
 		GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
 
 		updateUI(account);
@@ -67,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		// todo Update your UI accordingly—that is, hide the sign-in button, launch your main activity, or whatever is appropriate for your app.
 
 		if (account != null) {
+
+			// Check to see if it already exists in database
+			getUser user = new getUser(account);
+
 			// Pass the authenticated user's email and id to the calendar activity, and start it
 			Intent myIntent = new Intent(this, CalendarSelect.class);
 			myIntent.putExtra(USER_EMAIL, account.getEmail());
