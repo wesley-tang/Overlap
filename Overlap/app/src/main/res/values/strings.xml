@@ -22,4 +22,8 @@
     <string name="allowedHours">Allow scheduling between the hours of</string>
     <string name="description">I\'m not writing a description for all these damn assets</string>
     <string name="preferences">Preferences</string>
+    <string name="selectContacts">Select from contacts:</string>
+    <string name="newContact">Add new contact:</string>
+    <string name="name">(Name)</string>
+    <string name="email">(Email Address)</string>
 </resources>
