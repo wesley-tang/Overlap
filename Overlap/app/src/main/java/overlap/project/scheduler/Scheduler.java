@@ -14,6 +14,10 @@ import overlap.project.User;
  */
 public class Scheduler {
 
+	// Time in milliseconds for the scheduler to attempt to find time slots
+	// Currently at 5 minutes.
+	private final int INTERVAL = 300000;
+
 	private ArrayList<User> users;
 
 	/**
@@ -36,12 +40,11 @@ public class Scheduler {
 	public DateRange schedule(ArrayList<DateRange> validDays, long duration){
 
 		// Apply and filter out restrictions
-
 		ArrayList<DateRange> unavailable = new ArrayList<>();
 
 		// Consider all user's calendars
 		for (User user : users){
-			unavailable.addAll(genDateRangesFrom(user, validDays.get(0).getStart(), validDays.get(validDays.size()-1).getEnd()));
+//			unavailable.addAll(genDateRangesFrom(user, validDays.get(0).getStart(), validDays.get(validDays.size()-1).getEnd()));
 		}
 
 		// Remove from valid dates
@@ -49,23 +52,27 @@ public class Scheduler {
 			validDays = dateRange.removeFrom(validDays);
 		}
 
-		// todo remove preferences of all User.
-		// Do this when grabbing the user's input
-
 		// Break range into 'slots' capable of containing the event
 		ArrayList<DateRange> possibleTimes = new ArrayList<>();
 
 		for (DateRange dateRange : validDays){
-			long timeSlot = dateRange.getEnd().getTime()-dateRange.getStart().getTime();
+			// Convert duration to milliseconds
+			duration *= 60000;
+
+			long timeSlot = dateRange.getEnd().getTime() - dateRange.getStart().getTime();
 			if (timeSlot < duration)
 				continue;
 
+			// todo how to acount for if it exceeds longs
 			// Find all the periods that the event could fit in the slot, at 5 minute intervals
-			for (int time = 0; time + duration < timeSlot; time+=5){
+			for (long time = 0; time + duration < timeSlot; time += INTERVAL){
+
+				//System.out.println("calc slots " + time);
 				// Create a new date range between the beginning of the time to the end of its duration
 				DateRange newPossibility = new DateRange(new Date(dateRange.getStart().getTime() + time), new Date(dateRange.getStart().getTime() + time+duration));
 				possibleTimes.add(newPossibility);
 			}
+
 		}
 
 		// If no possible events found report error or give alternative

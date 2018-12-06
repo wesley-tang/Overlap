@@ -1,5 +1,8 @@
 package overlap.project.scheduler;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,7 +13,7 @@ import java.util.Locale;
  * DateRange contains the start and end of a range of time, specifying year, month, day, hour,
  * minute and second.
  */
-public class DateRange {
+public class DateRange implements Parcelable{
 
 	// Start and end of the date range as a string in iCalendar format
 	private String start;
@@ -21,7 +24,7 @@ public class DateRange {
 	private Date endDate;
 
 	// The pattern by which to convert iCalendar times to Date objects
-	private final String datePattern = "yyyyMMdd'T'HHmmss'Z'";
+	private final String DATE_PATTERN = "yyyyMMdd'T'HHmmss'Z'";
 
 	/**
 	 * Creates a new DateRange from the given start and end. Must be written in iCalendar format
@@ -55,7 +58,7 @@ public class DateRange {
 	// Attempts to parse the iCalendar strings to produce Date objects, returning whether it was successful
 	private void convertToDates() throws ParseException {
 		// Define the date format used by the iCalander standard (no timezone)
-		SimpleDateFormat icsFormat = new SimpleDateFormat(datePattern, Locale.CANADA);
+		SimpleDateFormat icsFormat = new SimpleDateFormat(DATE_PATTERN, Locale.CANADA);
 
 		// Convert the strings to dates.
 		startDate = icsFormat.parse(start);
@@ -68,6 +71,15 @@ public class DateRange {
 	 */
 	public boolean contains(Date toCheck){
 		return toCheck.after(startDate) && toCheck.before(endDate);
+	}
+
+	/**
+	 * @param toCheck the Date to check if the day is the same
+	 * @return true if the passed Date has the same day as the invoking DateRange.
+	 */
+	public boolean sameDay(Date toCheck){
+		// todo make this not bad
+		return startDate.getDate() == toCheck.getDate() && startDate.getMonth() == startDate.getMonth();
 	}
 
 	/**
@@ -164,5 +176,38 @@ public class DateRange {
 	 */
 	public Date getEnd(){
 		return endDate;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(this.start);
+		dest.writeString(this.end);
+		dest.writeSerializable(this.startDate);
+		dest.writeSerializable(this.endDate);
+	}
+
+	public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+		public DateRange createFromParcel(Parcel in) {
+			return new DateRange(in);
+		}
+
+		public DateRange[] newArray(int size) {
+			return new DateRange[size];
+		}
+	};
+
+	// Parcelling part
+	public DateRange(Parcel in){
+		this.start = in.readString();
+		this.end = in.readString();
+
+
+		this.startDate = (Date) in.readSerializable();
+		this.endDate = (Date) in.readSerializable();
 	}
 }
