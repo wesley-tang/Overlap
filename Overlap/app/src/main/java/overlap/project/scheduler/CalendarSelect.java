@@ -166,7 +166,38 @@ public class CalendarSelect extends AppCompatActivity {
 			}
 		});
 
+		// On button clicks
+		final ImageButton settingsButton = findViewById(R.id.settingsButton);
+		settingsButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				toSettingsPage();
+			}
+		});
+
+
+		// On button clicks
+		final ImageButton inviteesButton = findViewById(R.id.inviteesButton);
+		inviteesButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				toInviteesPage();
+			}
+		});
+
     }
+
+	private void toSettingsPage(){
+		// Move to settings
+		Intent myIntent = new Intent(this, SettingsPage.class);
+		startActivity(myIntent);
+		// todo pass user info across or have it stored locally
+	}
+
+
+	private void toInviteesPage(){
+		// Move to settings
+		Intent myIntent = new Intent(this, InviteesPage.class);
+		startActivity(myIntent);
+	}
 
 	private void scheduleEvent(){
 		Scheduler scheduler = new Scheduler(users);
