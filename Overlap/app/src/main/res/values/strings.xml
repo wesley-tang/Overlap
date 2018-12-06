@@ -6,5 +6,20 @@
     <string name="invitees">Invitees:</string>
     <string name="timeframe">Schedule anytime within the next 2 months</string>
     <string name="schedule">SCHEDULE EVENT</string>
+    <string name="allowDays">Allow following weekdays:</string>
+    <string name="weekdayMonday">M</string>
+    <string name="weekdayTuesdayThursday">T</string>
+    <string name="weekdayWednesday">W</string>
+    <string name="weekdayFriday">F</string>
+    <string name="weekdaySaturdaySunday">S</string>
+    <string name="done">DONE</string>
+    <string name="defaultDuration">Default event duration:</string>
+    <string name="hours">hour(s)</string>
+    <string name="and">and</string>
+    <string name="eightAM">8:00AM</string>
+    <string name="one">1</string>
+    <string name="eightPM">8:00PM</string>
+    <string name="allowedHours">Allow scheduling between the hours of</string>
     <string name="description">I\'m not writing a description for all these damn assets</string>
+    <string name="preferences">Preferences</string>
 </resources>
