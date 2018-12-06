@@ -48,7 +48,7 @@ public class getUser {
 
 						// Set as defaults
 						// todo retrieve calendar
-					// todo remove magic numbers
+						// todo remove magic numbers
 						ics = "";
 						weekdayPref = "";
 						defDuration = 60;

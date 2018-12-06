@@ -22,8 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private GoogleSignInClient mGoogleSignInClient;
 	private int RC_SIGN_IN = 1;
 
-	public static final String USER_ID = "overlap.project.ID";
-	public static final String USER_EMAIL = "overlap.project.EMAIl";
+	public static final String USER_ACCOUNT = "overlap.project.ACCOUNT";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 			// Pass the authenticated user's email and id to the calendar activity, and start it
 			Intent myIntent = new Intent(this, CalendarSelect.class);
-			myIntent.putExtra(USER_EMAIL, account.getEmail());
-			myIntent.putExtra(USER_ID, account.getId());
+			myIntent.putExtra(USER_ACCOUNT, account);
 			startActivity(myIntent);
 
 			// Create pop up notification for authentication

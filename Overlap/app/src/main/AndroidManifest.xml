@@ -19,6 +19,7 @@ package="overlap.project">
         </intent-filter>
     </activity>
     <activity android:name=".scheduler.CalendarSelect"/>
+    <activity android:name=".NewEvent"/>
 </application>
 
 </manifest>

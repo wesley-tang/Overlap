@@ -44,11 +44,22 @@ public class User extends AppCompatActivity {
 
         }
 
-
-
     }
 
-    public void addToDatabase() {
+	public User(String id, String displayName, String fname, String lname, String email, String ics, String weekdayPref, int defDuration, int beginTime, int endTime) {
+		this.id = id;
+		this.displayName = displayName;
+		this.fname = fname;
+		this.lname = lname;
+		this.email = email;
+		this.ics = ics;
+		this.weekdayPref = weekdayPref;
+		this.defDuration = defDuration;
+		this.beginTime = beginTime;
+		this.endTime = endTime;
+	}
+
+	public void addToDatabase() {
 
         //Add id to database
         myRef = database.getReference(id);
@@ -89,33 +100,36 @@ public class User extends AppCompatActivity {
     }
 
     public String getIcs() {
-        myRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                ics = dataSnapshot.child("ICS").getValue(String.class);
-            }
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        return ics;
+		// TODO REMOVE THIS AFTER DEBUGGING NOT GOOD NOT GOOD AT ALL!!!!11!
+    	return ics;
+//        myRef.addChildEventListener(new ChildEventListener() {
+//            @Override
+//            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//                ics = dataSnapshot.child("ICS").getValue(String.class);
+//            }
+//
+//            @Override
+//            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+//
+//            }
+//
+//            @Override
+//            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//        return ics;
     }
 
     public void setWeekdayPref(String weekdayPref) {
