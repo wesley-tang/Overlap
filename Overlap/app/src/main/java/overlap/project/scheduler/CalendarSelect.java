@@ -98,21 +98,22 @@ public class CalendarSelect extends AppCompatActivity {
 					validDays.add(new DateRange(selectedDate, endDate));
 				}
 
+				System.out.println(validDays.size());
+
 				// Update datesText
 				if (validDays.size() == 0){
 					datesText.setText(DEF_TEXT + DEF_TEXT_EMPTY);
 				} else {
-					String dates = " on";
+					String dates = " on ";
 					// Restrict it to max 5 dates before ...
 					// todo remove magic number todo convert to month string
 					for (int i = 0; i < validDays.size()-1 && i < 6; i++){
 						if (i == 5)
 							dates += "...";
 						else {
-							dates += ", " + Integer.toString(validDays.get(i).getStart().getMonth()+1) + "/" + Integer.toString(validDays.get(i).getStart().getDate());
+							dates += Integer.toString(validDays.get(i).getStart().getMonth()+1) + "/" + Integer.toString(validDays.get(i).getStart().getDate()) + ", ";
 						}
 					}
-					System.out.println(DEF_TEXT + dates);
 					datesText.setText(DEF_TEXT + dates);
 				}
 			}

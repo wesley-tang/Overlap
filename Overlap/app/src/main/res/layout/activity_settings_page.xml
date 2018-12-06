@@ -6,4 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".scheduler.SettingsPage">
 
+    <RadioButton
+        android:id="@+id/radioButton3"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="S"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radioButton10"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton6"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:text="M"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton7"
+        app:layout_constraintStart_toEndOf="@+id/radioButton9"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton7"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:text="T"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton5"
+        app:layout_constraintStart_toEndOf="@+id/radioButton6"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton5"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="W"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton8"
+        app:layout_constraintStart_toEndOf="@+id/radioButton7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.324" />
+
+    <RadioButton
+        android:id="@+id/radioButton8"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:text="T"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton10"
+        app:layout_constraintStart_toEndOf="@+id/radioButton5"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton10"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:text="F"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton3"
+        app:layout_constraintStart_toEndOf="@+id/radioButton8"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <RadioButton
+        android:id="@+id/radioButton9"
+        android:layout_width="46dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="S"
+        app:layout_constraintEnd_toStartOf="@+id/radioButton6"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Allow following days"
+        app:layout_constraintBottom_toTopOf="@+id/radioButton6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="147dp" />
 </android.support.constraint.ConstraintLayout>
